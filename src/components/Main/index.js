@@ -115,6 +115,12 @@ function Main() {
             <Currencies />
           </select>
         </div>
+
+        <div>
+          <p>{proccess.env.REACT_APP_CLIENT_ID}</p>
+          <p>{proccess.env.REACT_APP_CLIENT_SECRET}</p>
+        </div>
+
         <div
           className="rates-detail"
           style={elementHidden ? { display: 'none' } : {}}
