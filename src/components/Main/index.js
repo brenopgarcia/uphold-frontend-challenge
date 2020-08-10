@@ -17,8 +17,8 @@ function Main() {
 
 
   const sdk = new SDK({
-    clientId: CLIENT_ID,
-    clientSecret: CLIENT_SECRET,
+    clientId: process.env.REACT_APP_CLIENT_ID,
+    clientSecret: process.env.REACT_APP_CLIENT_SECRET,
     baseUrl: 'http://api-sandbox.uphold.com',
   });
 
