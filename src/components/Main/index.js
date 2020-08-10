@@ -117,8 +117,8 @@ function Main() {
         </div>
 
         <div>
-          <p>{proccess.env.REACT_APP_CLIENT_ID}</p>
-          <p>{proccess.env.REACT_APP_CLIENT_SECRET}</p>
+          <p>"{proccess.env.REACT_APP_CLIENT_ID}"</p>
+          <p>"{proccess.env.REACT_APP_CLIENT_SECRET}"</p>
         </div>
 
         <div
