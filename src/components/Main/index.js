@@ -3,12 +3,12 @@ import SDK from '@uphold/uphold-sdk-javascript';
 
 import { Currencies } from '../AvailableCurrency/index';
 import { ImageTextCurrencyPair } from '../Currency/index';
-import { CLIENT_ID, CLIENT_SECRET } from '../../utils/config';
+// import { CLIENT_ID, CLIENT_SECRET } from '../../utils/config';
 
 import { Container } from './styles';
 
 function Main() {
-  const [amount, setAmount] = useState(0);
+  const [amount, setAmount] = useState(2);
   const [items, setItems] = useState([]);
   const [currency, setCurrency] = useState('USD');
   const [cache, setCache] = useState({});
@@ -108,16 +108,17 @@ function Main() {
             placeholder="0.00"
           />
           <select
-            name="currency-values"
+            className="currency-values"
             onChange={(x) => setCurrency(x.target.value)}
             id="currency"
+
           >
             <Currencies />
           </select>
         </div>
 
         <div
-          className="rates-detail"
+          classNamePrefix="rates-detail"
           style={elementHidden ? { display: 'none' } : {}}
         >
           <small>Enter an amount to check the rates.</small>

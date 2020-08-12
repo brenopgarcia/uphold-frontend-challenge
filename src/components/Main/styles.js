@@ -19,6 +19,9 @@ export const Container = styled.div`
       min-height: 310px;
       max-height: 310px;
       overflow: auto;
+      display: grid;
+      grid-template-columns: auto auto;
+      grid-gap: 0px 10px;
     }
   }
 

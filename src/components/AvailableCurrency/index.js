@@ -25,5 +25,4 @@ export function Currencies() {
             { currenciesAvailables.map( e => <Currency key={e} item={e} /> )}
         </>
     );
-
 }

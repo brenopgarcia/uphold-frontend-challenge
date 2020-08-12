@@ -12,7 +12,6 @@ export const Container = styled.div`
     &:hover{
       color: #68778d;
       position:absolute;
-      
     }
 }
 `;

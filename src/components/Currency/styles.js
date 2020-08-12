@@ -8,35 +8,35 @@ export const Container = styled.div`
   .card {
     width: 100%;
     display: grid;
-    grid-template-columns: auto 17% 5%;
-    grid-column-gap: 5px;
+    grid-template-columns: 55% 35% 5%;
     padding-top: 12px;
     color:  #68778d;
 
     img {
       height: 24px;
       width: 24px;
+      /* padding-left: 32px; */
     }
 
     h3{
-      padding-right: 16px;
+      /* padding-right: 16px; */
       display: flex;
       flex-direction: row;
       justify-content: flex-end;
       white-space: nowrap;
+      font-size: 18px;
     }
 
     .value {
       flex-direction: flex-start;
       text-align: left;
-      padding-left:8px;
-      font-size: 20px;
-      max-width: 260px;
+      padding-left:12px;
+      font-size: 18px;
+      max-width: 160px;
       overflow: auto;
       span {
-      font-size: 24px;
-      }
+      font-size: 18px;
     }
   }
-
+  }
 `;
