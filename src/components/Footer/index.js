@@ -143,7 +143,7 @@ function Footer() {
 
           <div>
             <div className="apps">
-              <a
+              <div><a
                 target="_blank"
                 rel="noopener noreferrer"
                 href="https://apps.apple.com/us/app/uphold-buy-digital-currencies/id1101145849"
@@ -156,7 +156,8 @@ function Footer() {
                 href="https://play.google.com/store/apps/details?id=com.uphold.wallet"
               >
                 <img alt="" src={PlayStore} />
-              </a>
+              </a></div>
+
               <select name="languages" className="languages">
                 <option value="en">English US</option>
                 <option value="en-us">English USA</option>
