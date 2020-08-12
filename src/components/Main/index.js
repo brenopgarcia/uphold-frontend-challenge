@@ -27,12 +27,22 @@ function Main() {
    */
   const cacheDuration = 30000;
 
+  /**
+   * Setting image while loading data
+   */
   const loading = <img src="https://media.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif" alt=""/>;
 
+  /**
+   * Rendereing flag, currency and current amount
+   */
   const results = items.map((each) => (
     <ImageTextCurrencyPair key={each.pair} item={each} amount={amount} />
   ));
 
+
+  /**
+   * useEffect to create cache from data
+   */
   useEffect(() =>
     async () => {
       const now = new Date().getTime();
@@ -61,7 +71,7 @@ function Main() {
   , [cache, currency, cacheTimer, sdk]);
 
   /**
-   * Switch div display attribute between none and nothing
+   * Switch div display attribute between result and without result
    * @param {*} e
    */
   function changedValue(e) {
