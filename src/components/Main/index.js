@@ -67,8 +67,7 @@ function Main() {
       setCache({ ...cache, [currency]: cache[currency] });
     }
     setItems(cache[currency]);
-    }
-  , [cache, currency, cacheTimer, sdk]);
+    }, [cache, currency, cacheTimer, sdk]);
 
   /**
    * Switch div display attribute between result and without result
