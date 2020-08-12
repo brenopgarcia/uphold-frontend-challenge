@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect } from 'react';
 import SDK from '@uphold/uphold-sdk-javascript';
 
 import { Currencies } from '../AvailableCurrency/index';
@@ -27,40 +27,28 @@ function Main() {
    */
   const cacheDuration = 30000;
 
-  /**
-   * Returns cacheTimer for a request (milliseconds). Possible outputs:
-   * 1. Current cacheTimer value (no changes)
-   * 2. Current time + cacheLifeSpan
-   */
-  function getCacheTimer() {
-    const now = new Date().getTime();
-    if (cacheTimer < now + cacheDuration) {
-      setCacheTimer(now + cacheDuration);
-    }
-    return cacheTimer;
-  }
-
-  /**
-   * Returns fetched data for a currency. Format: Array
-   * @param {*} currencyPar
-   */
-  async function getRates(currencyPar) {
-    const result = await sdk.getTicker(currencyPar);
-    return result.filter((n) => n.currency === currencyPar);
-  }
-
-
   const loading = <img src="https://media.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif" alt=""/>;
 
   const results = items.map((each) => (
     <ImageTextCurrencyPair key={each.pair} item={each} amount={amount} />
   ));
 
-  /**
-   * Set items to be rendered, based on values stored on cache.
-   */
-  async function setCachedResult() {
-    const now = new Date().getTime();
+  useEffect(() =>
+    async () => {
+      const now = new Date().getTime();
+
+    async function getRates(currencyPar) {
+      const result = await sdk.getTicker(currencyPar);
+      return result.filter((n) => n.currency === currencyPar);
+    }
+
+    function getCacheTimer() {
+      const now = new Date().getTime();
+      if (cacheTimer < now + cacheDuration) {
+        setCacheTimer(now + cacheDuration);
+      }
+      return cacheTimer;
+    }
 
     if (!cache[currency] || cache[currency].time < now) {
       cache[currency] = await getRates(currency);
@@ -69,13 +57,8 @@ function Main() {
       setCache({ ...cache, [currency]: cache[currency] });
     }
     setItems(cache[currency]);
-  }
-
-  const caching = useCallback(() => setCachedResult(), [setCachedResult])
-
-  useEffect(() => {
-    caching()
-  }, [currency, caching]);
+    }
+  , [cache, currency, cacheTimer, sdk]);
 
   /**
    * Switch div display attribute between none and nothing

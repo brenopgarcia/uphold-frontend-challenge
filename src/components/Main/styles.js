@@ -22,6 +22,7 @@ export const Container = styled.div`
       display: grid;
       grid-template-columns: auto auto;
       grid-gap: 0px 10px;
+      word-wrap: break-word;
     }
   }
 
